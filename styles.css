@@ -1,7 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
 h1,
 footer {
   text-align: center;
 }
+
 
 .container {
   margin: 0 auto;
@@ -10,6 +15,7 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  width: 100%;
 }
 
 .recipe {
@@ -27,7 +33,7 @@ img {
 
 a {
   text-decoration: none;
-  margin-top: 10px;
+  margin: 10px 0;
 }
 
 p {
@@ -39,15 +45,15 @@ li {
 }
 
 .grid-container {
-  margin: 0 auto;
+  margin: 0px auto 0;
   width: 80%;
   display: grid;
-  grid-template-columns: repeat(1, 1fr 2fr);
+  justify-content: center;
+  grid-template-columns: minmax(1fr, 500px);
   grid-template-areas:
     "image description"
     "ingredients steps";
-  grid-template-columns: 300px 700px;
-  grid-gap: 50px;
+  grid-gap: 20px;
 }
 
 .finished-product {
@@ -55,18 +61,17 @@ li {
 }
 
 .description,
-.ingredients,
 .steps {
-  padding: 0 20px;
+  max-width: 700px;
 }
-
 
 .description {
   grid-area: description;
-  border-bottom: 10px solid black;
+  border-bottom: 5px solid black;
 }
 
 .ingredients {
+  padding: 0 20px;
   grid-area: ingredients;
   background-color: #FAFAFA;
 }
@@ -77,4 +82,23 @@ li {
 
 footer a {
   font-weight: 900;
+}
+
+
+@media (max-width: 800px) {
+  .grid-container {
+    grid-template-areas:
+      "description description"
+      "image image"
+      "ingredients ingredients"
+      "steps steps";
+  }
+
+  .description {
+    border: none;
+  }
+
+  img {
+    margin: 0 auto;
+  }
 }
